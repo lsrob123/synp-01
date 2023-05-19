@@ -1,0 +1,143 @@
+{
+	"name": "test notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "sparkpool01",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"runAsWorkspaceSystemIdentity": false,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "8152fb6e-acbe-4d52-9e7e-90129ec648b9"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"5a72b24a-0781-4088-b18d-ddc44b618b8f": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "771",
+										"1": "Mountain-100 Silver, 38",
+										"2": "Mountain Bikes",
+										"3": "123"
+									},
+									{
+										"0": "772",
+										"1": "Mountain-100 Silver, 42",
+										"2": "Mountain Bikes",
+										"3": "223"
+									},
+									{
+										"0": "773",
+										"1": "Mountain-100 Silver, 44",
+										"2": "Mountain Bikes",
+										"3": "323"
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "ProductID",
+										"type": "string"
+									},
+									{
+										"key": "1",
+										"name": "ProductName",
+										"type": "string"
+									},
+									{
+										"key": "2",
+										"name": "Category",
+										"type": "string"
+									},
+									{
+										"key": "3",
+										"name": "ListPrice",
+										"type": "string"
+									}
+								],
+								"truncated": false
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "count",
+									"categoryFieldKeys": [
+										"0"
+									],
+									"seriesFieldKeys": [
+										"0"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/c9340344-3325-4aa4-a5fc-0cd25cd65add/resourceGroups/lx-i-rg-eus/providers/Microsoft.Synapse/workspaces/lx-i-synap-eus/bigDataPools/sparkpool01",
+				"name": "sparkpool01",
+				"type": "Spark",
+				"endpoint": "https://lx-i-synap-eus.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/sparkpool01",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net",
+					"authHeader": null
+				},
+				"sparkVersion": "3.3",
+				"nodeCount": 3,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://testdata@synpdls01.dfs.core.windows.net/test-01.csv', format='csv', header=True)\r\n",
+					"display(df.limit(10))"
+				],
+				"execution_count": 2
+			}
+		]
+	}
+}
