@@ -11,6 +11,9 @@
 		"ly-i-synp-01-eus-WorkspaceDefaultSqlServer_connectionString": {
 			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:ly-i-synp-01-eus.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
 		},
+		"sta2_connectionString": {
+			"value": ""
+		},
 		"ly-i-synp-01-eus-WorkspaceDefaultStorage_properties_typeProperties_url": {
 			"value": "https://lxistaeus.dfs.core.windows.net"
 		}
