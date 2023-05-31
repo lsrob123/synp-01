@@ -13,7 +13,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "a0d3c032-0224-4a90-8ddb-f9a681041ea8"
+				"spark.autotune.trackingId": "aa2a6ceb-2999-4859-8dea-b394a0bbbe23"
 			}
 		},
 		"metadata": {
@@ -31,6 +31,11 @@
 		"cells": [
 			{
 				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					}
+				},
 				"source": [
 					"%%pyspark\n",
 					"blob_account_name = \"lxistaeus\"\n",
@@ -43,12 +48,12 @@
 					"\n",
 					"spark.conf.set(\n",
 					"    'fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),\n",
-					"    blob_sas_token)\r\n",
-					"df = spark.read.load('wasbs://testdate2@lxistaeus.blob.core.windows.net/test-02.csv', format='csv'\r\n",
-					"## If header exists uncomment line below\r\n",
-					"##, header=True\r\n",
-					")\r\n",
-					"display(df.limit(10))"
+					"    blob_sas_token)\n",
+					"df = spark.read.load('wasbs://testdate2@lxistaeus.blob.core.windows.net/test-02.csv', format='csv'\n",
+					"## If header exists uncomment line below\n",
+					"##, header=True\n",
+					")\n",
+					"display(df.limit(1000))"
 				],
 				"execution_count": null
 			}
