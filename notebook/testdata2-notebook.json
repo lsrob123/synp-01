@@ -53,7 +53,7 @@
 					"## If header exists uncomment line below\n",
 					"##, header=True\n",
 					")\n",
-					"display(df.limit(2345))"
+					"display(df.limit(3345))"
 				],
 				"execution_count": null
 			}
